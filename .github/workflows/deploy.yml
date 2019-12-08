@@ -3,13 +3,13 @@ on:
     push:
         branches:
             - master
-        
+    
 jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v1
+    build-and-deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+                uses: actions/checkout@v1
 
-    - name: Build and Deploy
-        run: gatsby build && gh-pages -d public -b master -r https://github.com/openclimatefix/openclimatefix.github.io -a
+            - name: Build and deploy
+                run: gatsby build && gh-pages -d public -a
