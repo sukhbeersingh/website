@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@v1
+        uses: actions/checkout@v1
 
     - name: Build and Deploy
-    - run: gatsby build && gh-pages -d public -b master -r https://github.com/openclimatefix/openclimatefix.github.io -a
+        run: gatsby build && gh-pages -d public -b master -r https://github.com/openclimatefix/openclimatefix.github.io -a
