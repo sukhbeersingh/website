@@ -1,21 +1,16 @@
-name: Build and Deploy
+name: Gatsby Publish
+
 on:
-    push:
-        branches:
-            - gh-pages
-    
+  push:
+    branches:
+      - gh-pages
+
 jobs:
-    build-and-deploy:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Checkout
-              uses: actions/checkout@v1
-
-            - name: Install dependencies
-              run: |
-                yarn global add gatsby
-                yarn global add gh-pages
-
-
-            - name: Build and deploy
-              run: gatsby build && gh-pages -d public -a
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: enriikke/gatsby-gh-pages-action@v2
+        with:
+          access-token: ${{ secrets.ACCESS_TOKEN }}
+          deploy-branch: gh-pages
